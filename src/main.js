@@ -1,0 +1,14 @@
+"use strict";
+let firstName = "Dylan";
+console.log(firstName);
+const json = JSON.parse("55");
+console.log(typeof json);
+const names = [];
+names.push("Brian");
+names.push("power");
+console.log(names);
+const titles = ["Mr", "Miss", "Mrs"];
+const readonlyTuple = [1, "Two", false];
+console.log(readonlyTuple);
+const namedTuple = [2, 3, 4];
+console.log(typeof namedTuple);

@@ -105,3 +105,78 @@ const redRect: ColoredRectangle = {
     width: 90,
     color: "red"
 }
+
+// union types
+type StatusCode = string | number 
+
+const printStatusCode= (code: StatusCode)=>{
+    console.log(code);
+}
+printStatusCode("Not Found ")
+printStatusCode(404)
+
+// functions
+
+function multiply(a: number, b:number, c?:number, d: number = 2): number {
+    return a* b * (c || 1) * d
+}
+
+function logger(num:number): void {
+    console.log(num);
+}
+logger(multiply(56, 89))
+
+//function type aliases
+
+type Negate = (value: number)=> number
+const negate: Negate = (value)=> value * -1
+console.log(negate(90))
+
+//casting
+
+let g: unknown = 'hello';
+console.log((<string>g).length);
+
+console.log(((8 as unknown) as string).length)
+
+//classes inheritance
+
+interface Shape {
+  getArea: () => number;
+}
+
+class Rectangle implements Shape {
+  public constructor(protected readonly w: number, protected readonly h: number) {}
+
+  public getArea(): number {
+    return this.width * this.height;
+  }
+}
+
+
+// Partial, Record, Required, Omit, Pick, Exclude, ReturnType, Parameters
+
+interface Person {
+  name: string;
+  age: number;
+  location?: string;
+}
+
+const bob: Omit<Person, 'age' | 'location'> = {
+  name: 'Bob'
+  // `Omit` has removed age and location from the type and they can't be defined here
+};
+
+const boby: Pick<Person, 'name'> = {
+  name: 'Bob'
+  // `Pick` has only kept name, so age and location were removed from the type and they can't be defined here
+};
+
+interface Person {
+  name: string;
+  age: number;
+  location?: string;
+}
+
+type Primitive = string | number | boolean
+const value: Exclude<Primitive, string> = true; // a string cannot be used here since Exclude removed it from the type.

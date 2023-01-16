@@ -86,17 +86,17 @@ const car3: Car = {
 // Interfaces (objects only)
 
 
-interface Rectangle{
+interface Rectangle_{
     height: number,
     width: number
 }
-const rect: Rectangle = {
+const rectc: Rectangle_ = {
     height: 78,
     width: 200
 }
 
 //extending interfaces
-interface ColoredRectangle extends Rectangle{
+interface ColoredRectangle extends Rectangle_{
     color: string
 }
 
@@ -149,7 +149,7 @@ class Rectangle implements Shape {
   public constructor(protected readonly w: number, protected readonly h: number) {}
 
   public getArea(): number {
-    return this.width * this.height;
+    return this.w * this.h;
   }
 }
 

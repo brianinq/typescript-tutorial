@@ -59,7 +59,7 @@ const car3 = {
     type: carType,
     model: carModel
 };
-const rect = {
+const rectc = {
     height: 78,
     width: 200
 };
@@ -87,3 +87,21 @@ console.log(negate(90));
 let g = 'hello';
 console.log(g.length);
 console.log(8..length);
+class Rectangle {
+    constructor(w, h) {
+        this.w = w;
+        this.h = h;
+    }
+    getArea() {
+        return this.w * this.h;
+    }
+}
+const bob = {
+    name: 'Bob'
+    // `Omit` has removed age and location from the type and they can't be defined here
+};
+const boby = {
+    name: 'Bob'
+    // `Pick` has only kept name, so age and location were removed from the type and they can't be defined here
+};
+const value = true; // a string cannot be used here since Exclude removed it from the type.
